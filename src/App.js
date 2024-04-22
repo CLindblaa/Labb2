@@ -4,11 +4,11 @@ import Search from "./components/Search";
 import Weather from "./components/Weather";
 import Footer from "./components/Footer";
 import RecentSearchesList from "./components/RecentSearchesList";
+import ModalRecentSearch from "./components/ModalRecentSearch";
 import Error from "./components/Error";
+import { Navbar } from "./components/Navbar";
 import { fetchWeatherData } from "./api";
 import styled from "styled-components";
-import { Navbar } from "./components/Navbar";
-import ModalRecentSearch from "./components/ModalRecentSearch";
 
 const AppDiv = styled.div`
   background: #f4f4f4;

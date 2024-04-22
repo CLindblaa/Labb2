@@ -1,12 +1,21 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 
 const RecentSearchesContext = createContext();
 
+const recentSearchesReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD_SEARCH":
+      return [action.payload, ...state];
+    default:
+      return state;
+  }
+};
+
 export const RecentSearchesProvider = ({ children }) => {
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [recentSearches, dispatch] = useReducer(recentSearchesReducer, []);
 
   const addRecentSearch = (search) => {
-    setRecentSearches((prevSearches) => [search, ...prevSearches]);
+    dispatch({ type: "ADD_SEARCH", payload: search });
   };
 
   return (
